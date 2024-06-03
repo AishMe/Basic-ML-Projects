@@ -39,7 +39,7 @@ if submit:
             # Make Prediction
             with st.spinner('Predicting...'):
                 Y_pred = model.predict(opencv_image)
-                st.write(f"The Dog Breed is :blue[{BREEDS[np.argmax(Y_pred)]}]")
+                st.title(f"The Dog Breed is :blue[{BREEDS[np.argmax(Y_pred)]}]")
             sys.stdout.flush()
 
         except Exception as e:
