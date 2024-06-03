@@ -3,6 +3,7 @@ import numpy as np
 import streamlit as st
 import cv2
 import keras
+import sys
 from keras.models import load_model
 
 # Loading the model
@@ -33,7 +34,16 @@ if submit:
         opencv_image = cv2.resize(opencv_image, (224,224))
         # Convert image to 4 dimension
         opencv_image.shape = (1,224,224,3)
-        # Make Prediction
-        Y_pred = model.predict(opencv_image)
 
-        st.title(str(f"The Dog Breed is {BREEDS[np.argmax(Y_pred)]}"))
+        try:
+            # Make Prediction
+            Y_pred = model.predict(opencv_image)
+            st.title(f"The Dog Breed is :blue[{BREEDS[np.argmax(Y_pred)]}]")
+            sys.stdout.flush()
+
+        except Exception as e:
+            st.error("An error occurred during prediction.")
+            st.error(str(e))
+
+
+    
