@@ -6,10 +6,6 @@ import keras
 import sys
 from keras.models import load_model
 
-from signal import signal, SIGPIPE, SIG_DFL   
-#Ignore SIG_PIPE and don't throw exceptions on it... (http://docs.python.org/library/signal.html)  
-signal(SIGPIPE,SIG_DFL)   
-
 # Loading the model
 model = load_model('dog_breed.h5')
 
@@ -43,7 +39,7 @@ if submit:
             # Make Prediction
             with st.spinner('Predicting...'):
                 Y_pred = model.predict(opencv_image)
-                st.title(f"The Dog Breed is :blue[{BREEDS[np.argmax(Y_pred)]}]")
+                st.write(f"The Dog Breed is :blue[{BREEDS[np.argmax(Y_pred)]}]")
             sys.stdout.flush()
 
         except Exception as e:
