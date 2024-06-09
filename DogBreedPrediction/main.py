@@ -7,13 +7,13 @@ import sys
 from keras.models import load_model
 
 # Loading the model
-model = load_model('dog_breed.h5')
+model = load_model('./DogBreedPrediction/dog_breed.h5')
 
 # Name of Classes
 BREEDS = ['Scottish Deerhound', 'Maltese Dog', 'Afgan Hound']
 
 # Title of the app
-st.title("Dog Breed Prediction")
+st.title(":blue[Dog Breed Prediction]")
 st.markdown("Upload an image of the dog")
 
 # Uploading input image (dog)
@@ -46,5 +46,3 @@ if submit:
             st.error("An error occurred during prediction.")
             st.error(str(e))
 
-
-    

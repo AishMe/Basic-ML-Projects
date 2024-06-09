@@ -1,0 +1,11 @@
+# Common
+streamlit
+
+# Dog Breed Prediction 
+streamlit
+keras
+opencv-python-headless
+numpy
+tensorflow
+
+# Traffic Sign Classification
